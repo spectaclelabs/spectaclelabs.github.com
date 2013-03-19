@@ -22,8 +22,10 @@
         <link rel="stylesheet" href="/media/fonts/knewave/stylesheet.css" />
         <link rel="stylesheet" href="/media/fonts/fontawesome/font-awesome.css" />
         <link href='http://fonts.googleapis.com/css?family=Dosis:400,600' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
     
         <link rel="stylesheet" href="/media/css/normalize.css" />
+        <link rel="stylesheet" href="/media/css/pygments/friendly.css" />
         <link rel="stylesheet" href="/media/css/main.css" />
 
         <!--[if lt IE 9]>
@@ -96,6 +98,72 @@
 
 <article>
     <h2>
+        <a href="/blog/2013-03-15-introducing-miles">
+            Introducing... Miles
+        </a>
+    </h2>
+    <span class="meta">                                                                 <i class="icon-calendar"></i>                                                   <time datetime="2013-03-15" data-need-fill="true"></time>                  <i class="icon-comments"></i><a href="http://www.spectaclelabs.org/blog/2013-03-15-introducing-miles#disqus_thread"></a>
+</span>
+    <figure>
+    <img src="/media/images/blog/Miles_Davis_by_Palumbo.jpg" alt="Miles Davis">
+    <figcaption>Photo: Miles Davis by <a href="http://www.flickr.com/people/tompalumbo">Tom Palumbo</a></figcaption>
+</figure>
+
+<p>Over the next couple of weeks I'll be running through a few of the libraries which will form the basis of the first Spectacle Labs board, and giving some quick examples of how they work.  First up is <a href="https://github.com/spectaclelabs/miles">Miles</a>, the smallest and most complete library in the Spectacle arsenal.</p>
+
+<h3>What is it?</h3>
+
+<p><a href="https://github.com/spectaclelabs/miles">Miles</a> is a C++11 library for representing musical scales and tunings.  One of the most common tasks when creating music on a computer is constraining the notes you play to a certain scale, and working within a fixed tuning system.  As part of this you need to work out what pitch the notes should represent.  Sounds simple?  Well, lets look at a seemingly straightforward problem.</p>
+
+<h3>What pitch is middle C?</h3>
+
+<p>Middle C (C<sub>4</sub> for the <a href="http://en.wikipedia.org/wiki/Scientific_pitch_notation">scientists</a> amongst you) is the fourth C note on a standard 88 key piano.  Imagine we start a two-piece piano and electronics band.  When you play middle C on your piano and I play it on my computer we want to both be playing the same pitch, otherwise we will sound like a chorus of cats...</p>
+
+<div class="video-container">
+    <iframe width="560" height="315" src="http://www.youtube-nocookie.com/embed/cHfBQCJaJoI?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<p>But, which pitch should we both be playing?  First we have to settle on a base pitch to work from.  A common standard is to use the A above middle C as a fixed reference point.  In the UK, most orchestras define this note to be at 440Hz (the <a href="http://en.wikipedia.org/wiki/A440_%28pitch_standard%29">A440 pitch standard</a>), but in the US and continental Europe 442 or 443Hz is often used.</p>
+
+<p>Once we have decided on a base pitch, we then have to agree on a tuning to use.  In most western music <a href="http://en.wikipedia.org/wiki/Equal_temperament">equal temperament tuning</a> is used, but non-western music often uses its own mathematically defined tuning systems.  These change the relationship between our reference note A and middle C, meaning there are an even wider range of pitches we could be playing.</p>
+
+<p>As you can see, our simple problem of playing a middle C has become increasingly difficult.  Our newly formed band could be splitting up over "musical differences" before we've even played a note.</p>
+
+<h3>Enter Miles</h3>
+
+<p>Miles solves these problems for you by allowing you to specify which scale, tuning and reference pitch to use when working out which pitch to play.  The following simple program prints the A major scale from our A440 reference pitch up to A<sub>5</sub>, one octave higher.</p>
+
+<div class="codehilite"><pre><code><span class="cp">#include &lt;iostream&gt;</span>
+
+<span class="cp">#include &quot;miles.h&quot;</span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">miles</span><span class="p">;</span>
+
+<span class="c1">// Create a major scale</span>
+<span class="n">Scale</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">MajorScale</span><span class="p">();</span>
+
+<span class="c1">// Our reference frequency, used as the base frequency of our scale</span>
+<span class="kt">float</span> <span class="n">A440</span> <span class="o">=</span> <span class="mf">440.0f</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Print the A major scale from A440 up to A5</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">uint32_t</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">scale</span><span class="p">.</span><span class="n">getFrequency</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">A440</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>If we want to play in a different tuning then we can simply change the scale; for example <code>Scale scale = MajorScale(JustTuning());</code> would play our scale using <a href="http://en.wikipedia.org/wiki/Just_intonation">Just intonation</a>.  Miles has a number of standard scales and tunings built-in, and it is simple to add new custom scales and tunings.</p>
+
+<p>There are more examples and further documentation available on <a href="https://github.com/spectaclelabs/miles">GitHub</a>, and please report any problems or bugs you find on the <a href="https://github.com/spectaclelabs/miles/issues">issue tracker</a>.  Hopefully Miles will help to solve your tuning issues and will ensure that your relationship with other musicians is as harmonious as possible.</p>
+
+</article>
+
+
+
+
+<article>
+    <h2>
         <a href="/blog/hello-world">
             Hello World!
         </a>
@@ -133,6 +201,15 @@
 
 <section>
     <h3>On the blog</h3>
+    
+    <article class="small">
+        <h4><a href="/blog/2013-03-15-introducing-miles">Introducing... Miles</a></h4>
+        <span class="meta">                                                                 <i class="icon-calendar"></i>                                                   <time datetime="2013-03-15" data-need-fill="true"></time>                  <i class="icon-comments"></i><a href="http://www.spectaclelabs.org/blog/2013-03-15-introducing-miles#disqus_thread"></a>
+</span>
+        <p>
+            Photo: Miles Davis by Tom Palumbo Over the next couple of weeks I'll be running through a few of the libraries which will form the basis of the first Spectacle Labs board, and giving some quick examples of how they work. First up is Miles, the smallest ...
+        </p>
+    </article>
     
     <article class="small">
         <h4><a href="/blog/hello-world">Hello World!</a></h4>
