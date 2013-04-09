@@ -3,13 +3,24 @@
     <title>Spectacle Labs</title>
     <link href="http://www.spectaclelabs.org/feed" rel="self"/>
     <link href="http://www.spectaclelabs.org/"/>
-    <updated>2013-03-25T09:21:51Z</updated>
+    <updated>2013-04-09T09:11:31Z</updated>
     <id>http://www.spectaclelabs.org</id>
     <author>
         <name>Joe Turner</name>
         <email>joe@spectaclelabs.org</email>
     </author>
 
+    
+    <entry>
+        <title>Prototype Number 1</title>
+        <link href="http://www.spectaclelabs.org/blog/2013-04-09-prototype-number-1"/>
+        <updated>2013-04-09T00:00:00Z</updated>
+        <id>http://www.spectaclelabs.org/blog/2013-04-09-prototype-number-1</id>
+        <content type="html">&lt;p&gt;&lt;img src=&#34;/media/images/blog/2013-04-09-prototype.png&#34; alt=&#34;First Prototype&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The image above is super exciting - it&#39;s the first 3D render of the first prototype of our first board.  All the routing is finally finished, so it&#39;s time to find someone to knock up a couple of boards.  As soon as they get here I&#39;ll put some images up and there will be videos of a working board with blinking lights Real Soon Now.&lt;/p&gt;
+</content>
+    </entry>
     
     <entry>
         <title>Stuff We Love - Sick of Beige</title>
