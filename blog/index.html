@@ -98,6 +98,57 @@
 
 <article>
     <h2>
+        <a href="/blog/2013-08-21-babadoo-sneak-peek">
+            Babadoo: A Sneak Peek
+        </a>
+    </h2>
+    <span class="meta">                                                                 <i class="icon-calendar"></i>                                                   <time datetime="2013-08-21" data-need-fill="true"></time>                  <i class="icon-comments"></i><a href="http://www.spectaclelabs.org/blog/2013-08-21-babadoo-sneak-peek#disqus_thread"></a>
+</span>
+    <p>After a hard few months working away at hardware, drivers and more drivers, it's probably time to give you a little preview of what all the effort has been for.  So here it is in prototype form - the Babadoo Open-Source Audio DSP Board.</p>
+
+<p><img src="/media/images/blog/2013-08-21-babadoo.png" alt="Babadoo" /></p>
+
+<h2>What is it?</h2>
+
+<p>The Babadoo is a small, low-cost, hackable board designed to make getting started with audio synthesis and processing as simple as possible.  The input and outputs are both switchable, allowing you to work with a range of devices, from guitars and amplifiers, to MP3 players and headphones.</p>
+
+<p><img src="/media/images/blog/2013-08-21-babadoo_diagram.png" alt="Babadoo Connection Diagram" /></p>
+
+<p>The Babadoo can be used to create a whole range of awesome digital audio projects, for example you could make:</p>
+
+<ul>
+<li>Your perfect polyphonic digital synth (with added WubWubWub).</li>
+<li>A crazy glitched-out pitch-shifting delay stompbox.</li>
+<li>An interactive soundscape generator.</li>
+<li>A box to make you sound like a dalek.  Exterminate!</li>
+</ul>
+
+<h2>How do I use it?</h2>
+
+<p>It's easy!  To get an app onto the board you simply download a single file, then plug your Babadoo into your computer via a USB cable and you can drag-and-drop the app onto your Babadoo.  You can then unplug your Babadoo, take it to a gig, plug it in (with no laptop required) and play.</p>
+
+<p>If you want to get your hands dirty and start creating your own custom effects and synths then that's also really straightforward.  Alongside the Babadoo we've created a number of C++ libraries designed to make audio synthesis and processing both simple and expressive.  For example to create a reverb effect you will only need to write three lines of code:</p>
+
+<div class="codehilite"><pre><code><span class="n">Babadoo</span> <span class="n">babadoo</span><span class="p">;</span> <span class="c1">// Create a device representing the Babadoo</span>
+<span class="n">Reverb</span> <span class="n">reverb</span><span class="p">;</span> <span class="c1">// Create a reverb effect</span>
+<span class="n">babadoo</span> <span class="o">&gt;&gt;</span> <span class="n">reverb</span> <span class="o">&gt;&gt;</span> <span class="n">babadoo</span><span class="p">;</span> <span class="c1">// Take the audio input, process it with the reverb, and send it to the output</span>
+</code></pre></div>
+
+<p>You can then compile your code and upload it to your Babadoo, or share it online so other users can hear your awesome app.</p>
+
+<h2>Where do I get one?</h2>
+
+<p>In the next couple of months the Babadoo will be available to pre-order via Kickstarter (where you will be able to see the full specs, and a load more detail about the Babadoo).</p>
+
+<p>If you are a whizz with a soldering iron and have time to help out with beta testing then <a href="mailto:joe@spectaclelabs.org">drop us a line</a>, as there are a couple of unpopulated prototype boards knocking around Spectacle Labs towers which are looking for a good home.  For now though, keep an eye on the blog and our <a href="http://www.twitter.com/spectaclelabs">Twitter feed</a>, as there are a number of videos showing of a little bit of what the Babadoo can do in the offing.</p>
+
+</article>
+
+
+
+
+<article>
+    <h2>
         <a href="/blog/2013-05-02-incoming">
             Incoming...
         </a>
@@ -138,40 +189,6 @@
 
 
 
-<article>
-    <h2>
-        <a href="/blog/2013-03-25-stuff-we-love-sick-of-beige">
-            Stuff We Love - Sick of Beige
-        </a>
-    </h2>
-    <span class="meta">                                                                 <i class="icon-calendar"></i>                                                   <time datetime="2013-03-25" data-need-fill="true"></time>                  <i class="icon-comments"></i><a href="http://www.spectaclelabs.org/blog/2013-03-25-stuff-we-love-sick-of-beige#disqus_thread"></a>
-</span>
-    <div class="video-container">
-    <iframe width="560" height="315" src="http://www.youtube-nocookie.com/embed/x_3jcsEbFWg?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
-
-<p>When Spectacle Labs makes its first million, I will be able to do two important things.  One is afford to eat less lentils, and the other is to put some cheques in the post to the awesome open-source projects which are helping make Spectacle Labs a reality.  Sadly whilst I'm still living on lentils and cups of tea the best I can manage is a a series of blog posts shouting about why the projects are so great.</p>
-
-<p>First up is <a href="http://dangerousprototypes.com/">Dangerous Prototypes'</a> <a href="http://dangerousprototypes.com/docs/Sick_of_Beige_standard_PCB_sizes_v1.0">Sick of Beige</a>, described by Ian from DP in the video above.  Now standards are kind of dull right?  And I'm not going to convince anyone that the size of circuit boards is a fascinating topic of conversation.  So why is a PCB sizing standard in the list of stuff we love?  Three big reasons:</p>
-
-<ol>
-<li>Blank slates are bad: There is something incredibly dispiriting about seeing a whole bunch of components which need laying out.  Having a fixed PCB size to aim at somehow makes the whole thing seem much more achievable.</li>
-<li>Project boxes are bad: Seriously, go to website of any enclosure manufacturer.  Feeling inspired to make something?  Thought not.</li>
-<li>Making things fit in project boxes is bad: The board is too big.  Or too small.  You need to drill holes for standoffs.  Or get something custom made.  Putting something in a box has never been so difficult.</li>
-</ol>
-
-<p>For those three reasons we love Sick of Beige, and until I develop a competing standard it will be used in everything we make.</p>
-
-<figure>
-    <img src="http://imgs.xkcd.com/comics/standards.png" alt="Standards">
-        <figcaption>Standards from <a href="http://xkcd.com/">xkcd</a></figcaption>
-</figure>
-
-</article>
-
-
-
-
 
 <div id="pagination">
     
@@ -205,6 +222,15 @@
     <h3>On the blog</h3>
     
     <article class="small">
+        <h4><a href="/blog/2013-08-21-babadoo-sneak-peek">Babadoo: A Sneak Peek</a></h4>
+        <span class="meta">                                                                 <i class="icon-calendar"></i>                                                   <time datetime="2013-08-21" data-need-fill="true"></time>                  <i class="icon-comments"></i><a href="http://www.spectaclelabs.org/blog/2013-08-21-babadoo-sneak-peek#disqus_thread"></a>
+</span>
+        <p>
+            After a hard few months working away at hardware, drivers and more drivers, it's probably time to give you a little preview of what all the effort has been for. So here it is in prototype form - the Babadoo Open-Source Audio DSP Board. What is it? The ...
+        </p>
+    </article>
+    
+    <article class="small">
         <h4><a href="/blog/2013-05-02-incoming">Incoming...</a></h4>
         <span class="meta">                                                                 <i class="icon-calendar"></i>                                                   <time datetime="2013-05-02" data-need-fill="true"></time>                  <i class="icon-comments"></i><a href="http://www.spectaclelabs.org/blog/2013-05-02-incoming#disqus_thread"></a>
 </span>
@@ -219,15 +245,6 @@
 </span>
         <p>
             The image above is super exciting - it's the first 3D render of the first prototype of our first board. All the routing is finally finished, so it's time to find someone to knock up a couple of boards. As soon as they get here I'll put some images up and ...
-        </p>
-    </article>
-    
-    <article class="small">
-        <h4><a href="/blog/2013-03-25-stuff-we-love-sick-of-beige">Stuff We Love - Sick of Beige</a></h4>
-        <span class="meta">                                                                 <i class="icon-calendar"></i>                                                   <time datetime="2013-03-25" data-need-fill="true"></time>                  <i class="icon-comments"></i><a href="http://www.spectaclelabs.org/blog/2013-03-25-stuff-we-love-sick-of-beige#disqus_thread"></a>
-</span>
-        <p>
-            When Spectacle Labs makes its first million, I will be able to do two important things. One is afford to eat less lentils, and the other is to put some cheques in the post to the awesome open-source projects which are helping make Spectacle Labs a ...
         </p>
     </article>
     

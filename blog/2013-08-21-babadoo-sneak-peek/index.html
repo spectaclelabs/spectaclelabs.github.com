@@ -8,7 +8,7 @@
         <meta name="description" content="Open-source hardware for educators, artists, musicians and hackers" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
 
-        <title>Spectacle Labs | Prototype Number 1</title>
+        <title>Spectacle Labs | Babadoo: A Sneak Peek</title>
 
         <link rel="shortcut icon" href="/media/images/icons/favicon.ico" />
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/media/images/icons/apple-touch-icon-144x144-precomposed.png">
@@ -98,15 +98,49 @@
 
 <article>
     <h2>
-        <a href="/blog/2013-04-09-prototype-number-1">
-            Prototype Number 1
+        <a href="/blog/2013-08-21-babadoo-sneak-peek">
+            Babadoo: A Sneak Peek
         </a>
     </h2>
-    <span class="meta">                                                                 <i class="icon-calendar"></i>                                                   <time datetime="2013-04-09" data-need-fill="true"></time>                  <i class="icon-comments"></i><a href="http://www.spectaclelabs.org/blog/2013-04-09-prototype-number-1#disqus_thread"></a>
+    <span class="meta">                                                                 <i class="icon-calendar"></i>                                                   <time datetime="2013-08-21" data-need-fill="true"></time>                  <i class="icon-comments"></i><a href="http://www.spectaclelabs.org/blog/2013-08-21-babadoo-sneak-peek#disqus_thread"></a>
 </span>
-    <p><img src="/media/images/blog/2013-04-09-prototype.png" alt="First Prototype" /></p>
+    <p>After a hard few months working away at hardware, drivers and more drivers, it's probably time to give you a little preview of what all the effort has been for.  So here it is in prototype form - the Babadoo Open-Source Audio DSP Board.</p>
 
-<p>The image above is super exciting - it's the first 3D render of the first prototype of our first board.  All the routing is finally finished, so it's time to find someone to knock up a couple of boards.  As soon as they get here I'll put some images up and there will be videos of a working board with blinking lights Real Soon Now.</p>
+<p><img src="/media/images/blog/2013-08-21-babadoo.png" alt="Babadoo" /></p>
+
+<h2>What is it?</h2>
+
+<p>The Babadoo is a small, low-cost, hackable board designed to make getting started with audio synthesis and processing as simple as possible.  The input and outputs are both switchable, allowing you to work with a range of devices, from guitars and amplifiers, to MP3 players and headphones.</p>
+
+<p><img src="/media/images/blog/2013-08-21-babadoo_diagram.png" alt="Babadoo Connection Diagram" /></p>
+
+<p>The Babadoo can be used to create a whole range of awesome digital audio projects, for example you could make:</p>
+
+<ul>
+<li>Your perfect polyphonic digital synth (with added WubWubWub).</li>
+<li>A crazy glitched-out pitch-shifting delay stompbox.</li>
+<li>An interactive soundscape generator.</li>
+<li>A box to make you sound like a dalek.  Exterminate!</li>
+</ul>
+
+<h2>How do I use it?</h2>
+
+<p>It's easy!  To get an app onto the board you simply download a single file, then plug your Babadoo into your computer via a USB cable and you can drag-and-drop the app onto your Babadoo.  You can then unplug your Babadoo, take it to a gig, plug it in (with no laptop required) and play.</p>
+
+<p>If you want to get your hands dirty and start creating your own custom effects and synths then that's also really straightforward.  Alongside the Babadoo we've created a number of C++ libraries designed to make audio synthesis and processing both simple and expressive.  For example to create a reverb effect you will only need to write three lines of code:</p>
+
+<div class="codehilite"><pre><code><span class="n">Babadoo</span> <span class="n">babadoo</span><span class="p">;</span> <span class="c1">// Create a device representing the Babadoo</span>
+<span class="n">Reverb</span> <span class="n">reverb</span><span class="p">;</span> <span class="c1">// Create a reverb effect</span>
+<span class="n">babadoo</span> <span class="o">&gt;&gt;</span> <span class="n">reverb</span> <span class="o">&gt;&gt;</span> <span class="n">babadoo</span><span class="p">;</span> <span class="c1">// Take the audio input, process it with the reverb, and send it to the output</span>
+</code></pre></div>
+
+<p>You can then compile your code and upload it to your Babadoo, or share it online so other users can hear your awesome app.</p>
+
+<h2>Where do I get one?</h2>
+
+<p>In the next couple of months the Babadoo will be available to pre-order via Kickstarter (where you will be able to see the full specs, and a load more detail about the Babadoo).</p>
+
+<p>If you are a whizz with a soldering iron and have time to help out with beta testing then <a href="mailto:joe@spectaclelabs.org">drop us a line</a>, as there are a couple of unpopulated prototype boards knocking around Spectacle Labs towers which are looking for a good home.  For now though, keep an eye on the blog and our <a href="http://www.twitter.com/spectaclelabs">Twitter feed</a>, as there are a number of videos showing of a little bit of what the Babadoo can do in the offing.</p>
 
 </article>
 
@@ -115,7 +149,7 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'spectaclelabs';
-    var diqus_url = 'http://www.spectaclelabs.org/blog/2013-04-09-prototype-number-1/index.html';
+    var diqus_url = 'http://www.spectaclelabs.org/blog/2013-08-21-babadoo-sneak-peek/index.html';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
